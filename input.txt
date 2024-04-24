@@ -1,0 +1,8 @@
+A,The Twelve Chairs,1970,G,1
+A,Spiderman,2002,PG-13,4
+A,Snow Dogs,2002,PG-13,2
+A,Cars,2006,PG,4
+A,Cars,2006,PG,3
+D,Cars,2006
+A,Cars 2,2011,PG,4
+A,Shrek,2001,PG,4

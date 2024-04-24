@@ -1,0 +1,32 @@
+Number of movies:	6
+
+Title:		Shrek
+Year:		2001
+Rating:		PG
+Reviews:	4
+
+Title:		Cars 2
+Year:		2011
+Rating:		PG
+Reviews:	4
+
+Title:		Cars
+Year:		2006
+Rating:		PG
+Reviews:	3
+
+Title:		Snow Dogs
+Year:		2002
+Rating:		PG-13
+Reviews:	2
+
+Title:		Spiderman
+Year:		2002
+Rating:		PG-13
+Reviews:	4
+
+Title:		The Twelve Chairs
+Year:		1970
+Rating:		G
+Reviews:	1
+
