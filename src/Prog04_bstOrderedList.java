@@ -94,7 +94,7 @@ public class Prog04_bstOrderedList {
 			StringBuilder movieFormat = new StringBuilder(); // String to format the car data neatly
 			movieFormat.append("Number of movies:\t" + list.size() + "\n\n");
 			for(int i = 0; i < list.size(); i++) {
-				Movie currMovie = (Movie) list.toArray("PostOrder")[i]; // Representation of the i'th car that will be formatted
+				Movie currMovie = (Movie) list.toArray("InOrder")[i]; // Representation of the i'th car that will be formatted
 				
 				NumberFormat addCommas = NumberFormat.getInstance(); // Adds commas to the price if needed
 				addCommas.setGroupingUsed(true);
