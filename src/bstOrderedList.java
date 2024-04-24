@@ -4,7 +4,7 @@ import java.util.Arrays;
  * bstOrderedList Class. A customized data structure similar to a
  * BinarySearchTree
  * 
- * CSC 1351 Programming Project No 1
+ * CSC 1351 Programming Project No 2
  * Section 2
  * 
  * @author Shane Ruegg
@@ -33,7 +33,6 @@ public class bstOrderedList <T> {
 	
 	@SuppressWarnings("unchecked")
 	void add(Comparable<T> newObject) {
-		nodes++;
 		Node<T> newNode = new Node<T>();
 		newNode.data = newObject;
         // Creates a node separate from the tree
@@ -57,6 +56,7 @@ public class bstOrderedList <T> {
                     
                     if(focusNode == null) {
                         parent.leftChild = newNode;
+                        nodes++;
                         return;
                     }
                 }
@@ -65,6 +65,7 @@ public class bstOrderedList <T> {
                     
                     if(focusNode == null) {
                         parent.rightChild = newNode;
+                        nodes++;
                         return;
                     }
                 }
@@ -84,15 +85,15 @@ public class bstOrderedList <T> {
             return root;
  
         // Locate Node
-        if (root.data.compareTo((T) data) > 0) { // Left branch
+        if (root.data.compareTo((T) data) > 0) { // Then Traverse the Left branch
             root.leftChild = recursiveRemove(root.leftChild, data);
             return root;
-        } else if (root.data.compareTo((T) data) < 0) { // Right branch
+        } else if (root.data.compareTo((T) data) < 0) { // Then Traverse the Right branch
             root.rightChild = recursiveRemove(root.rightChild, data);
             return root;
         }
         
-        // Node Located
+        // At this point the node is located
  
         // If one or both of the children is null
         if (root.leftChild == null) {
@@ -105,6 +106,8 @@ public class bstOrderedList <T> {
         
         // If both children exist, using predecessors
         else {
+        	
+        	
  
             Node<T> predParent = root; // Will be the parent of the node that will
                                        // replace the desired deletion node
@@ -119,7 +122,7 @@ public class bstOrderedList <T> {
             	pred = pred.leftChild;
             }
             
-            // At this point the next highest node has been located and is equal to pred.
+            // At this point the next lowest node has been located and is equal to pred.
             
             if (predParent != root) {
             	predParent.rightChild = pred.leftChild; // If we are at the next highest node then, the next
@@ -127,14 +130,14 @@ public class bstOrderedList <T> {
                 										// remaining grandchild.
             } else {
             	predParent.leftChild = pred.leftChild; // If we didn't traverse down the tree, then the predParent's
-            }   	                              		 // right child will now be equal to its right grandchild
+            }   	                              	   // right child will now be equal to its right grandchild
             
-            // predParent.leftChild or predParent.rightChild are literally the Node's themselves
-            // making an adjustment predParent's children is directly adjusting root's children, because
-            // predParent.leftChild is the same Node as root.leftChild, and predParent.rightChild is the same
-            // Node as root.rightChild.
             
-            root.data = pred.data;
+            // The reason this works is because predParent.rightChild & predParent.leftChild are actual grandchildren
+            // of root, because the original predParent had the same pointers as root.
+            
+            
+            root.data = pred.data; // Replaces the value of the deletion node, with its just lowest child.
             
             return root;
         }
